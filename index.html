@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rate Card — Pesoros</title>
-<link rel="icon" type="image/png" href="pesoros-logo.png">
-<meta name="description" content="Rate card layanan pembuatan website, digital marketing, dan maintenance dari Pesoros.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Rate card for website development, digital marketing, and maintenance services from Pesoros.">
+<meta name="author" content="Pesoros">
+<meta name="application-name" content="Pesoros Rate Card">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#F6F2E9">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pesoros">
+<meta property="og:title" content="Rate Card — Pesoros">
+<meta property="og:description" content="Rate card for website development, digital marketing, and maintenance services from Pesoros.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rate Card — Pesoros">
+<meta name="twitter:description" content="Rate card for website development, digital marketing, and maintenance services from Pesoros.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -75,6 +86,16 @@
   @media (min-width:600px){.logo-link img{height:26px;}}
 
   .header-actions{display:flex;align-items:center;gap:.6rem;}
+  .language-switcher{
+    display:flex;align-items:center;padding:2px;border:1px solid var(--line);
+    border-radius:999px;background:var(--surface);
+  }
+  .language-switcher button{
+    border:0;border-radius:999px;background:transparent;color:var(--muted);
+    padding:.3rem .48rem;font:700 .68rem/1 'Plus Jakarta Sans',sans-serif;
+    cursor:pointer;
+  }
+  .language-switcher button.active{background:var(--ink);color:var(--surface);}
   .header-phone{
     font-size:.85rem;font-weight:700;color:var(--ink-soft);
     text-decoration:none;display:none;
@@ -348,6 +369,10 @@
       <img src="pesoros-logo.png" alt="Pesoros">
     </a>
     <div class="header-actions">
+      <div class="language-switcher" role="group" aria-label="Language selection">
+        <button type="button" data-lang="id" aria-pressed="false">ID</button>
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+      </div>
       <a class="header-phone" href="tel:+6281288855773">0812-8885-5773</a>
       <a class="btn btn-dark btn-sm" href="#kontak">Hubungi Sales</a>
     </div>
@@ -707,6 +732,176 @@
 </footer>
 
 <script>
+(function(){
+  var translations = {
+    '💬 Ada pertanyaan soal harga? Chat sales di':'💬 Have questions about pricing? Chat with sales at',
+    'Hubungi Sales':'Contact Sales',
+    'Daftar harga layanan pembuatan website, pengelolaan iklan digital, dan maintenance dari Pesoros. Semua paket bisa disesuaikan dengan kebutuhan dan skala bisnis Anda.':'Pricing for Pesoros website development, digital advertising management, and maintenance services. Every package can be tailored to your business needs and scale.',
+    'Paket Utama':'Main Packages',
+    'Empat paket pembuatan website, dari kebutuhan personal brand hingga sistem enterprise custom.':'Four website development packages, from personal brands to custom enterprise systems.',
+    'Cocok untuk: Startup, UMKM, dan personal brand.':'Best for: Startups, small businesses, and personal brands.',
+    'Hingga 5 halaman':'Up to 5 pages',
+    'Website responsif':'Responsive website',
+    'Modul blog & berita':'Blog & news module',
+    'Form kontak':'Contact form',
+    'Tombol CTA WhatsApp':'WhatsApp CTA button',
+    'SEO dasar':'Basic SEO',
+    'Integrasi Google Analytics 4':'Google Analytics 4 integration',
+    'Integrasi Google Search Console':'Google Search Console integration',
+    '1 tema website':'1 website theme',
+    'Training dasar':'Basic training',
+    'Dukungan teknis 14 hari':'14 days of technical support',
+    'Paling Populer':'Most Popular',
+    'Cocok untuk: Bisnis yang sedang berkembang dan butuh presence online yang profesional.':'Best for: Growing businesses that need a professional online presence.',
+    'Semua di paket Essential, plus:':'Everything in Essential, plus:',
+    'Halaman unlimited':'Unlimited pages',
+    'Modul portfolio':'Portfolio module',
+    'Modul katalog (list, detail & CMS CRUD)':'Catalog module (list, detail & CMS CRUD)',
+    'Media library':'Media library',
+    'Menu management':'Menu management',
+    'Dynamic homepage sections':'Dynamic homepage sections',
+    'SEO score & rekomendasi':'SEO score & recommendations',
+    'Konfigurasi SMTP':'SMTP configuration',
+    'Integrasi Google Tag Manager':'Google Tag Manager integration',
+    'Integrasi Microsoft Clarity':'Microsoft Clarity integration',
+    'Integrasi Meta Pixel':'Meta Pixel integration',
+    'Manajemen pesan kontak':'Contact message management',
+    'Dukungan teknis 30 hari':'30 days of technical support',
+    'Cocok untuk: Perusahaan mapan yang butuh fleksibilitas dan kustomisasi lebih.':'Best for: Established companies that need greater flexibility and customization.',
+    'Semua di paket Growth, plus:':'Everything in Growth, plus:',
+    'Konfigurasi SEO lanjutan':'Advanced SEO configuration',
+    'Template email':'Email templates',
+    'Dukungan teknis prioritas':'Priority technical support',
+    'Dokumentasi teknis':'Technical documentation',
+    'Dukungan teknis 60 hari':'60 days of technical support',
+    'Dirancang untuk: Organisasi dengan kebutuhan bisnis khusus.':'Designed for: Organizations with specialized business needs.',
+    'Mulai dari':'Starting from',
+    'Semua di paket Professional, plus:':'Everything in Professional, plus:',
+    'Modul custom':'Custom modules',
+    'Integrasi API pihak ketiga':'Third-party API integration',
+    'Konfigurasi keamanan lanjutan':'Advanced security configuration',
+    'Optimasi performa':'Performance optimization',
+    'Bantuan deployment':'Deployment assistance',
+    'Konsultasi arsitektur':'Architecture consultation',
+    'Dukungan teknis 90 hari':'90 days of technical support',
+    'Layanan Tambahan':'Additional Services',
+    'Pilihan Add-on':'Add-on Options',
+    'Tambahan modul dan layanan yang bisa dipasang ke paket mana pun sesuai kebutuhan proyek Anda.':'Additional modules and services available for any package based on your project needs.',
+    'Modul Katalog (List, Detail & CMS CRUD)':'Catalog Module (List, Detail & CMS CRUD)',
+    'Landing Page Tambahan':'Additional Landing Page',
+    'Tema Tambahan':'Additional Theme',
+    'Pengembangan Modul Kustom':'Custom Module Development',
+    'Integrasi API':'API Integration',
+    'Dukungan Multibahasa':'Multilingual Support',
+    'Migrasi Konten':'Content Migration',
+    'Optimasi SEO':'SEO Optimization',
+    'Penulisan Artikel Blog':'Blog Article Writing',
+    'Copywriting Company Profile':'Company Profile Copywriting',
+    'Desain Logo':'Logo Design',
+    'Deployment ke Shared Hosting':'Shared Hosting Deployment',
+    'Deployment ke VPS':'VPS Deployment',
+    'Mulai':'From',
+    'Setup dan pengelolaan campaign iklan bulanan, dikelola langsung oleh tim Pesoros.':'Setup and monthly ad campaign management, handled directly by the Pesoros team.',
+    'Setup Awal':'Initial Setup',
+    'Setup akun Google Ads':'Google Ads account setup',
+    'Conversion tracking':'Conversion tracking',
+    'Integrasi Google Analytics':'Google Analytics integration',
+    'Konfigurasi campaign':'Campaign configuration',
+    'Manajemen Bulanan':'Monthly Management',
+    'Optimasi campaign':'Campaign optimization',
+    'Optimasi keyword':'Keyword optimization',
+    'Optimasi bid':'Bid optimization',
+    'Monitoring konversi':'Conversion monitoring',
+    'Laporan performa bulanan':'Monthly performance report',
+    'Setup Meta Business':'Meta Business setup',
+    'Konfigurasi Meta Pixel':'Meta Pixel configuration',
+    'Setup campaign':'Campaign setup',
+    'Optimasi audience':'Audience optimization',
+    'Monitoring creative':'Creative monitoring',
+    '/bulan':'/month',
+    'Budget Iklan':'Ad Budget',
+    'Fee Management Iklan':'Ad Management Fee',
+    'Budget iklan diperhitungkan secara terpisah dari fee management di atas.':'The advertising budget is calculated separately from the management fees above.',
+    'dari budget iklan bulanan, dengan minimum Rp500.000/bulan.':'of the monthly ad budget, with a minimum of Rp500,000/month.',
+    'Fee Management':'Management Fee',
+    'Setelah Website Live':'After Your Website Goes Live',
+    'Paket perawatan bulanan untuk menjaga website tetap aman, cepat, dan up-to-date.':'Monthly maintenance packages to keep your website secure, fast, and up to date.',
+    'Update keamanan':'Security updates',
+    'Perbaikan bug':'Bug fixes',
+    'Verifikasi backup mingguan':'Weekly backup verification',
+    'Dukungan teknis dasar':'Basic technical support',
+    'Semua di paket Basic, plus:':'Everything in Basic, plus:',
+    'Bantuan konten':'Content assistance',
+    'Pengecekan kesehatan website bulanan':'Monthly website health check',
+    'Monitoring performa':'Performance monitoring',
+    'Semua di paket Standard, plus:':'Everything in Standard, plus:',
+    'Dukungan prioritas':'Priority support',
+    'Peningkatan fitur minor':'Minor feature enhancements',
+    'Konsultasi bulanan':'Monthly consultation',
+    'Monitoring lanjutan':'Advanced monitoring',
+    'Catatan':'Notes',
+    'Paket Essential sudah termasuk domain dan hosting.':'The Essential package includes domain and hosting.',
+    'Biaya layanan pihak ketiga diperhitungkan secara terpisah.':'Third-party service fees are calculated separately.',
+    'Proyek Enterprise memerlukan penawaran khusus sesuai scope proyek.':'Enterprise projects require a custom quotation based on project scope.',
+    'Dukungan teknis mencakup perbaikan bug & bantuan teknis saja. Permintaan fitur baru akan dikuotasi secara terpisah.':'Technical support covers bug fixes and technical assistance only. New feature requests will be quoted separately.',
+    'Siap Mulai Proyek Anda?':'Ready to Start Your Project?',
+    'Tim sales Pesoros siap bantu tentukan paket yang paling sesuai untuk kebutuhan dan budget bisnis Anda.':'The Pesoros sales team is ready to help you choose the package that best fits your business needs and budget.',
+    '© 2026 Pesoros — CV. Pengusaha Sogeh Teros. Harga dapat berubah sewaktu-waktu. Hubungi tim sales untuk penawaran resmi.':'© 2026 Pesoros — CV. Pengusaha Sogeh Teros. Prices are subject to change. Contact our sales team for an official quotation.'
+  };
+
+  var localizedNodes = [];
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  var node;
+  while ((node = walker.nextNode())) {
+    var original = node.nodeValue.trim().replace(/\s+/g, ' ');
+    if (translations[original]) localizedNodes.push({node:node, id:original, original:node.nodeValue});
+  }
+
+  var buttons = document.querySelectorAll('[data-lang]');
+  var salesButtons = document.querySelectorAll('a[href="#kontak"]');
+  var whatsappLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+  var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+
+  function setLanguage(lang) {
+    var english = lang === 'en';
+    localizedNodes.forEach(function(item){
+      item.node.nodeValue = english ? translations[item.id] : item.original;
+    });
+    document.documentElement.lang = english ? 'en' : 'id';
+    document.title = english ? 'Rate Card — Pesoros' : 'Rate Card — Pesoros';
+    var localizedDescription = english
+      ? 'Rate card for website development, digital marketing, and maintenance services from Pesoros.'
+      : 'Rate card layanan pembuatan website, digital marketing, dan maintenance dari Pesoros.';
+    document.querySelector('meta[name="description"]').content = localizedDescription;
+    document.querySelector('meta[property="og:description"]').content = localizedDescription;
+    document.querySelector('meta[name="twitter:description"]').content = localizedDescription;
+    document.querySelector('.language-switcher').setAttribute('aria-label', english ? 'Language selection' : 'Pilihan bahasa');
+    buttons.forEach(function(button){
+      var active = button.getAttribute('data-lang') === lang;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    whatsappLinks.forEach(function(link){
+      link.href = 'https://wa.me/6281288855773?text=' + encodeURIComponent(english
+        ? 'Hello Pesoros, I would like to ask about your website rate card.'
+        : 'Halo Pesoros, saya mau tanya soal rate card website.');
+    });
+    emailLinks.forEach(function(link){
+      link.href = 'mailto:sales@pesoros.com?subject=' + encodeURIComponent(english
+        ? 'Pesoros Rate Card Inquiry'
+        : 'Tanya Rate Card Pesoros');
+    });
+    try { localStorage.setItem('pesoros-language', lang); } catch (e) {}
+  }
+
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(){ setLanguage(button.getAttribute('data-lang')); });
+  });
+  var savedLanguage = 'en';
+  try { savedLanguage = localStorage.getItem('pesoros-language') || 'en'; } catch (e) {}
+  setLanguage(savedLanguage === 'en' ? 'en' : 'id');
+})();
+
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
