@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate Card — Pesoros</title>
+<link rel="icon" type="image/png" href="pesoros-logo.png">
+<meta name="description" content="Rate card layanan pembuatan website, digital marketing, dan maintenance dari Pesoros.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F2E9;
+    --surface:#FFFFFF;
+    --ink:#131110;
+    --ink-soft:#4B463C;
+    --muted:#87806E;
+    --gold:#C4A87B;
+    --gold-deep:#9C7F52;
+    --gold-pale:#F1E7D2;
+    --line:#E6DFCE;
+    --line-soft:#EFE9DA;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;}
+  @media (min-width:700px){.container{padding:0 2.25rem;}}
+
+  .band-surface{background:var(--surface);}
+
+  section{padding:4rem 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  @media (min-width:800px){section{padding:5.5rem 0;}}
+
+  /* ---------- Top strip + header ---------- */
+  .topbar{
+    background:var(--ink);
+    color:var(--bg);
+    text-align:center;
+    font-size:.8rem;
+    padding:.55rem 1rem;
+    letter-spacing:.01em;
+  }
+  .topbar a{color:var(--gold);font-weight:700;text-decoration:none;}
+  .topbar a:hover{text-decoration:underline;}
+
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,242,233,.92);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.8rem 0;
+  }
+  .logo-link{display:flex;align-items:center;}
+  .logo-link img{height:22px;width:auto;}
+  @media (min-width:600px){.logo-link img{height:26px;}}
+
+  .header-actions{display:flex;align-items:center;gap:.6rem;}
+  .header-phone{
+    font-size:.85rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;display:none;
+  }
+  @media (min-width:560px){.header-phone{display:inline-block;}}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.75rem 1.3rem;
+    font-family:inherit;font-weight:700;font-size:.85rem;
+    border:1px solid transparent;
+    text-decoration:none;cursor:pointer;
+    transition:background .2s ease,color .2s ease,border-color .2s ease,transform .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-sm{padding:.6rem 1rem;font-size:.8rem;}
+  .btn-dark{background:var(--ink);color:var(--bg);}
+  .btn-dark:hover{background:#000;}
+  .btn-gold{background:var(--gold);color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-deep);color:#fff;}
+  .btn-outline-light{border-color:var(--ink);color:var(--ink);background:transparent;}
+  .btn-outline-light:hover{background:var(--ink);color:var(--bg);}
+  .btn-outline-dark{border-color:var(--gold);color:var(--bg);background:transparent;}
+  .btn-outline-dark:hover{background:var(--gold);color:var(--ink);}
+
+  a:focus-visible,button:focus-visible,.btn:focus-visible{
+    outline:2px solid var(--gold-deep);outline-offset:2px;
+  }
+
+  .icon{width:16px;height:16px;flex:none;}
+
+  /* ---------- Eyebrow / headings ---------- */
+  .eyebrow{
+    display:flex;align-items:center;gap:.55rem;
+    font-size:.72rem;font-weight:800;text-transform:uppercase;
+    letter-spacing:.16em;color:var(--gold-deep);margin:0 0 .8rem;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;}
+
+  .accent-dot{color:var(--gold);}
+
+  h2.section-title{
+    font-weight:800;letter-spacing:-.01em;
+    font-size:clamp(1.5rem,1.15rem + 1.5vw,2.15rem);
+    margin:0 0 .75rem;color:var(--ink);
+  }
+  .section-intro{
+    color:var(--ink-soft);max-width:56ch;font-size:.98rem;margin:0;
+  }
+  .section-head{margin-bottom:2.5rem;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:3.5rem;}
+  @media (min-width:800px){.hero{padding-top:5rem;}}
+  .hero h1{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(2.6rem,2rem + 5vw,5.4rem);
+    line-height:.92;
+    letter-spacing:.005em;
+    margin:0;
+  }
+  .hero .sub{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
+    font-size:clamp(1rem,.85rem + .8vw,1.4rem);
+    color:var(--ink-soft);
+    margin:.6rem 0 1.5rem;
+  }
+  .hero p.desc{
+    max-width:52ch;color:var(--ink-soft);font-size:1.02rem;margin:0 0 2rem;
+  }
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:.85rem;}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal-hidden{opacity:0;transform:translateY(18px);}
+  .reveal-hidden.reveal-in{
+    opacity:1;transform:translateY(0);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+
+  /* ---------- Plan cards ---------- */
+  .plans-grid{
+    display:grid;grid-template-columns:1fr;gap:1.1rem;
+  }
+  @media (min-width:640px){.plans-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (min-width:980px){.plans-grid{grid-template-columns:repeat(4,1fr);}}
+
+  .plan-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    padding:1.75rem 1.4rem;
+    display:flex;flex-direction:column;
+    position:relative;
+  }
+  .plan-card.featured{
+    border:2px solid var(--gold);
+    box-shadow:0 20px 34px -22px rgba(19,17,16,.4);
+  }
+  @media (min-width:980px){.plan-card.featured{margin-top:-.9rem;padding-top:2.4rem;}}
+
+  .plan-badge{
+    position:absolute;top:-.8rem;left:1.4rem;
+    background:var(--gold);color:var(--ink);
+    font-size:.66rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+    padding:.32rem .65rem;
+  }
+  .plan-name{font-weight:800;letter-spacing:.03em;text-transform:uppercase;font-size:1.02rem;}
+  .plan-for{color:var(--muted);font-size:.83rem;margin-top:.4rem;min-height:2.5em;}
+  .plan-price{margin-top:1.3rem;}
+  .plan-price .prefix{
+    display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--gold-deep);font-weight:700;margin-bottom:.2rem;min-height:1em;
+  }
+  .plan-price .amount-row{display:flex;align-items:baseline;gap:.25rem;}
+  .plan-price .currency{font-size:1rem;font-weight:700;color:var(--ink-soft);}
+  .plan-price .amount{font-size:1.55rem;font-weight:800;letter-spacing:-.01em;}
+
+  .plan-divider{height:1px;background:var(--line);margin:1.3rem 0;}
+
+  .inherits{
+    font-size:.78rem;font-style:italic;color:var(--gold-deep);
+    border-left:2px solid var(--gold);padding-left:.6rem;
+    margin:0 0 .8rem;font-weight:600;
+  }
+
+  ul.feature-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1;}
+  ul.feature-list li{display:flex;gap:.55rem;align-items:flex-start;font-size:.87rem;line-height:1.4;color:var(--ink-soft);}
+  ul.feature-list .bullet{width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:.55em;flex:none;}
+
+  /* ---------- Leader-dot rate rows ---------- */
+  .rate-list{column-gap:3rem;}
+  @media (min-width:820px){.rate-list{column-count:2;}}
+  .rate-row{
+    display:flex;align-items:baseline;gap:.5rem;
+    padding:.85rem 0;border-bottom:1px solid var(--line-soft);
+    break-inside:avoid;
+  }
+  .rate-row:last-child{border-bottom:none;}
+  .rate-name{font-weight:600;font-size:.93rem;flex:0 1 auto;white-space:nowrap;}
+  .rate-leader{
+    flex:1 1 auto;overflow:hidden;white-space:nowrap;
+    color:var(--gold);font-weight:700;letter-spacing:3px;opacity:.8;
+    height:1em;
+  }
+  .rate-leader::after{
+    content:"....................................................................................................................";
+  }
+  .rate-price{flex:0 0 auto;font-weight:800;font-size:.93rem;white-space:nowrap;}
+  .rate-price .from{
+    font-weight:700;color:var(--muted);font-size:.68rem;text-transform:uppercase;
+    letter-spacing:.05em;margin-right:.3rem;
+  }
+  @media (max-width:460px){
+    .rate-row{display:block;}
+    .rate-leader{display:none;}
+    .rate-name{display:block;font-size:clamp(.72rem,3.4vw,.93rem);}
+    .rate-price{display:block;margin-top:.35rem;text-align:right;}
+  }
+
+  /* ---------- Marketing cards ---------- */
+  .marketing-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;}
+  @media (min-width:760px){.marketing-grid{grid-template-columns:1fr 1fr;}}
+  .marketing-card{background:var(--surface);border:1px solid var(--line);padding:1.9rem 1.6rem;}
+  .marketing-card h3{
+    font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    margin:0 0 1.4rem;
+  }
+  .marketing-sub{margin-bottom:1.5rem;}
+  .marketing-sub:last-child{margin-bottom:0;}
+  .marketing-sub .label{
+    font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--gold-deep);margin-bottom:.7rem;
+  }
+  .marketing-sub .price-line{
+    display:flex;align-items:baseline;gap:.4rem;margin-top:.9rem;
+    padding-top:.9rem;border-top:1px dashed var(--line);
+  }
+  .marketing-sub .price-line .from{
+    font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;
+  }
+  .marketing-sub .price-line .amount{font-weight:800;font-size:1.05rem;}
+  .marketing-sub .price-line .unit{font-size:.78rem;color:var(--muted);font-weight:600;}
+
+  /* ---------- Fee callout + table ---------- */
+  .fee-callout{
+    display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;
+    background:var(--gold-pale);border:1px solid var(--gold);
+    padding:1.4rem 1.7rem;margin:1.75rem 0 2rem;
+  }
+  .fee-callout .big{
+    font-family:'Anton',sans-serif;font-weight:400;font-size:2.4rem;color:var(--ink);line-height:1;
+  }
+  .fee-callout .label{font-size:.9rem;color:var(--ink-soft);max-width:34ch;}
+
+  table.budget-table{width:100%;border-collapse:collapse;}
+  table.budget-table th{
+    text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--muted);font-weight:800;padding-bottom:.7rem;border-bottom:2px solid var(--gold);
+  }
+  table.budget-table th:last-child,table.budget-table td:last-child{text-align:right;}
+  table.budget-table td{padding:.85rem 0;border-bottom:1px solid var(--line-soft);font-size:.94rem;}
+  table.budget-table tr:last-child td{border-bottom:none;}
+  table.budget-table td:last-child{font-weight:800;}
+
+  /* ---------- Maintenance grid ---------- */
+  .maint-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;}
+  @media (min-width:700px){.maint-grid{grid-template-columns:repeat(3,1fr);}}
+
+  /* ---------- Notes ---------- */
+  .notes-box{
+    background:var(--gold-pale);border:1px solid var(--gold);
+    padding:1.6rem 1.7rem;
+  }
+  .notes-box h3{margin:0 0 1rem;font-size:.95rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;}
+  .notes-box ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem;}
+  .notes-box li{display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--ink-soft);}
+  .notes-box .bullet{width:5px;height:5px;border-radius:50%;background:var(--gold-deep);margin-top:.55em;flex:none;}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);color:var(--bg);
+    padding:4.5rem 0 2.5rem;border-bottom:none;
+  }
+  footer.site-footer h2{
+    font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+    font-size:clamp(2rem,1.5rem + 3vw,3.4rem);line-height:1;margin:0 0 .9rem;color:var(--bg);
+  }
+  footer.site-footer p.lead{
+    color:#CFC8B8;max-width:48ch;font-size:1rem;margin:0 0 2.2rem;
+  }
+  .contact-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:3rem;}
+  .contact-block{
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;
+    border-top:1px solid #33302A;padding-top:2rem;
+  }
+  .logo-chip{
+    background:var(--bg);display:inline-flex;align-items:center;
+    padding:.55rem 1rem;
+  }
+  .logo-chip img{height:20px;width:auto;}
+  .footer-meta{color:#948C77;font-size:.8rem;max-width:46ch;line-height:1.6;}
+
+  /* ---------- Utility ---------- */
+  .stagger-1{transition-delay:.04s;}
+  .stagger-2{transition-delay:.09s;}
+  .stagger-3{transition-delay:.14s;}
+  .stagger-4{transition-delay:.19s;}
+
+  @media print{
+    .topbar,.site-header,.hero .cta-row,footer .contact-row,footer h2,footer p.lead{display:none !important;}
+    body{background:#fff;}
+    section{padding:1.5rem 0;border-bottom:1px solid #ccc;}
+    .reveal-hidden{opacity:1 !important;transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  💬 Ada pertanyaan soal harga? Chat sales di
+  <a href="https://wa.me/6281288855773?text=Halo%20Pesoros%2C%20saya%20mau%20tanya%20soal%20rate%20card%20website." target="_blank" rel="noopener">0812-8885-5773</a>
+</div>
+
+<header class="site-header">
+  <div class="container inner">
+    <a href="#top" class="logo-link" aria-label="Pesoros">
+      <img src="pesoros-logo.png" alt="Pesoros">
+    </a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+6281288855773">0812-8885-5773</a>
+      <a class="btn btn-dark btn-sm" href="#kontak">Hubungi Sales</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow reveal-hidden"><span class="dot"></span>Pesoros — 2026</div>
+      <h1 class="reveal-hidden">Rate Card<span class="accent-dot">.</span></h1>
+      <div class="sub reveal-hidden">Website, Digital Marketing &amp; Maintenance</div>
+      <p class="desc reveal-hidden">
+        Daftar harga layanan pembuatan website, pengelolaan iklan digital, dan maintenance dari Pesoros.
+        Semua paket bisa disesuaikan dengan kebutuhan dan skala bisnis Anda.
+      </p>
+      <div class="cta-row reveal-hidden">
+        <a class="btn btn-gold" href="https://wa.me/6281288855773?text=Halo%20Pesoros%2C%20saya%20mau%20tanya%20soal%20rate%20card%20website." target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L4 20l1-4.5A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          Chat via WhatsApp
+        </a>
+        <a class="btn btn-outline-light" href="mailto:sales@pesoros.com?subject=Tanya%20Rate%20Card%20Pesoros">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+          sales@pesoros.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WEBSITE PLATFORM ================= -->
+  <section class="band-surface" id="website">
+    <div class="container">
+      <div class="section-head reveal-hidden">
+        <div class="eyebrow"><span class="dot"></span>Paket Utama</div>
+        <h2 class="section-title">Website Platform<span class="accent-dot">.</span></h2>
+        <p class="section-intro">Empat paket pembuatan website, dari kebutuhan personal brand hingga sistem enterprise custom.</p>
+      </div>
+
+      <div class="plans-grid">
+
+        <div class="plan-card reveal-hidden stagger-1">
+          <div class="plan-name">Essential</div>
+          <div class="plan-for">Cocok untuk: Startup, UMKM, dan personal brand.</div>
+          <div class="plan-price">
+            <span class="prefix">&nbsp;</span>
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">3.000.000</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Hingga 5 halaman</li>
+            <li><span class="bullet"></span>Website responsif</li>
+            <li><span class="bullet"></span>CMS</li>
+            <li><span class="bullet"></span>Modul blog &amp; berita</li>
+            <li><span class="bullet"></span>Form kontak</li>
+            <li><span class="bullet"></span>Tombol CTA WhatsApp</li>
+            <li><span class="bullet"></span>SEO dasar</li>
+            <li><span class="bullet"></span>Integrasi Google Analytics 4</li>
+            <li><span class="bullet"></span>Integrasi Google Search Console</li>
+            <li><span class="bullet"></span>1 tema website</li>
+            <li><span class="bullet"></span>Domain &amp; hosting</li>
+            <li><span class="bullet"></span>Training dasar</li>
+            <li><span class="bullet"></span>Dukungan teknis 14 hari</li>
+          </ul>
+        </div>
+
+        <div class="plan-card featured reveal-hidden stagger-2">
+          <div class="plan-badge">Paling Populer</div>
+          <div class="plan-name">Growth</div>
+          <div class="plan-for">Cocok untuk: Bisnis yang sedang berkembang dan butuh presence online yang profesional.</div>
+          <div class="plan-price">
+            <span class="prefix">&nbsp;</span>
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">6.000.000</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="inherits">Semua di paket Essential, plus:</div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Halaman unlimited</li>
+            <li><span class="bullet"></span>Modul portfolio</li>
+            <li><span class="bullet"></span>Modul katalog (list, detail &amp; CMS CRUD)</li>
+            <li><span class="bullet"></span>Media library</li>
+            <li><span class="bullet"></span>Menu management</li>
+            <li><span class="bullet"></span>Dynamic homepage sections</li>
+            <li><span class="bullet"></span>SEO score &amp; rekomendasi</li>
+            <li><span class="bullet"></span>Konfigurasi SMTP</li>
+            <li><span class="bullet"></span>Integrasi Google Tag Manager</li>
+            <li><span class="bullet"></span>Integrasi Microsoft Clarity</li>
+            <li><span class="bullet"></span>Integrasi Meta Pixel</li>
+            <li><span class="bullet"></span>Manajemen pesan kontak</li>
+            <li><span class="bullet"></span>Dukungan teknis 30 hari</li>
+          </ul>
+        </div>
+
+        <div class="plan-card reveal-hidden stagger-3">
+          <div class="plan-name">Professional</div>
+          <div class="plan-for">Cocok untuk: Perusahaan mapan yang butuh fleksibilitas dan kustomisasi lebih.</div>
+          <div class="plan-price">
+            <span class="prefix">&nbsp;</span>
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">9.000.000</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="inherits">Semua di paket Growth, plus:</div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Dynamic content block engine</li>
+            <li><span class="bullet"></span>Custom theme styling</li>
+            <li><span class="bullet"></span>Konfigurasi SEO lanjutan</li>
+            <li><span class="bullet"></span>Template email</li>
+            <li><span class="bullet"></span>Dukungan teknis prioritas</li>
+            <li><span class="bullet"></span>Dokumentasi teknis</li>
+            <li><span class="bullet"></span>Dukungan teknis 60 hari</li>
+          </ul>
+        </div>
+
+        <div class="plan-card reveal-hidden stagger-4">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-for">Dirancang untuk: Organisasi dengan kebutuhan bisnis khusus.</div>
+          <div class="plan-price">
+            <span class="prefix">Mulai dari</span>
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">18.000.000</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="inherits">Semua di paket Professional, plus:</div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Modul custom</li>
+            <li><span class="bullet"></span>Integrasi API pihak ketiga</li>
+            <li><span class="bullet"></span>Custom business workflow</li>
+            <li><span class="bullet"></span>Konfigurasi keamanan lanjutan</li>
+            <li><span class="bullet"></span>Optimasi performa</li>
+            <li><span class="bullet"></span>Bantuan deployment</li>
+            <li><span class="bullet"></span>Konsultasi arsitektur</li>
+            <li><span class="bullet"></span>Dukungan teknis 90 hari</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ADD-ONS ================= -->
+  <section id="addons">
+    <div class="container">
+      <div class="section-head reveal-hidden">
+        <div class="eyebrow"><span class="dot"></span>Layanan Tambahan</div>
+        <h2 class="section-title">Pilihan Add-on<span class="accent-dot">.</span></h2>
+        <p class="section-intro">Tambahan modul dan layanan yang bisa dipasang ke paket mana pun sesuai kebutuhan proyek Anda.</p>
+      </div>
+
+      <div class="rate-list reveal-hidden">
+        <div class="rate-row"><span class="rate-name">Modul Katalog (List, Detail &amp; CMS CRUD)</span><span class="rate-leader"></span><span class="rate-price">Rp1.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Landing Page Tambahan</span><span class="rate-leader"></span><span class="rate-price">Rp1.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Tema Tambahan</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp3.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Pengembangan Modul Kustom</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp2.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Integrasi API</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp2.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Dukungan Multibahasa</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp3.000.000</span></div>
+        <div class="rate-row"><span class="rate-name">Migrasi Konten</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp1.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Optimasi SEO</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp2.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Penulisan Artikel Blog</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp300.000/artikel</span></div>
+        <div class="rate-row"><span class="rate-name">Copywriting Company Profile</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp2.000.000</span></div>
+        <div class="rate-row"><span class="rate-name">Desain Logo</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp1.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Branding Kit</span><span class="rate-leader"></span><span class="rate-price"><span class="from">Mulai</span>Rp3.500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Deployment ke Shared Hosting</span><span class="rate-leader"></span><span class="rate-price">Rp500.000</span></div>
+        <div class="rate-row"><span class="rate-name">Deployment ke VPS</span><span class="rate-leader"></span><span class="rate-price">Rp1.500.000</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DIGITAL MARKETING ================= -->
+  <section class="band-surface" id="marketing">
+    <div class="container">
+      <div class="section-head reveal-hidden">
+        <div class="eyebrow"><span class="dot"></span>Digital Marketing</div>
+        <h2 class="section-title">Google Ads &amp; Meta Ads Management<span class="accent-dot">.</span></h2>
+        <p class="section-intro">Setup dan pengelolaan campaign iklan bulanan, dikelola langsung oleh tim Pesoros.</p>
+      </div>
+
+      <div class="marketing-grid">
+        <div class="marketing-card reveal-hidden stagger-1">
+          <h3>Google Ads Management</h3>
+
+          <div class="marketing-sub">
+            <div class="label">Setup Awal</div>
+            <ul class="feature-list">
+              <li><span class="bullet"></span>Setup akun Google Ads</li>
+              <li><span class="bullet"></span>Conversion tracking</li>
+              <li><span class="bullet"></span>Integrasi Google Analytics</li>
+              <li><span class="bullet"></span>Integrasi Google Tag Manager</li>
+              <li><span class="bullet"></span>Konfigurasi campaign</li>
+            </ul>
+            <div class="price-line"><span class="from">Mulai dari</span><span class="amount">Rp1.000.000</span></div>
+          </div>
+
+          <div class="marketing-sub">
+            <div class="label">Manajemen Bulanan</div>
+            <ul class="feature-list">
+              <li><span class="bullet"></span>Optimasi campaign</li>
+              <li><span class="bullet"></span>Optimasi keyword</li>
+              <li><span class="bullet"></span>Optimasi bid</li>
+              <li><span class="bullet"></span>Monitoring konversi</li>
+              <li><span class="bullet"></span>Laporan performa bulanan</li>
+            </ul>
+            <div class="price-line"><span class="from">Mulai dari</span><span class="amount">Rp1.500.000</span><span class="unit">/bulan</span></div>
+          </div>
+        </div>
+
+        <div class="marketing-card reveal-hidden stagger-2">
+          <h3>Meta Ads Management</h3>
+
+          <div class="marketing-sub">
+            <div class="label">Setup Awal</div>
+            <ul class="feature-list">
+              <li><span class="bullet"></span>Setup Meta Business</li>
+              <li><span class="bullet"></span>Konfigurasi Meta Pixel</li>
+              <li><span class="bullet"></span>Conversion events</li>
+              <li><span class="bullet"></span>Setup campaign</li>
+            </ul>
+            <div class="price-line"><span class="from">Mulai dari</span><span class="amount">Rp1.000.000</span></div>
+          </div>
+
+          <div class="marketing-sub">
+            <div class="label">Manajemen Bulanan</div>
+            <ul class="feature-list">
+              <li><span class="bullet"></span>Optimasi campaign</li>
+              <li><span class="bullet"></span>Optimasi audience</li>
+              <li><span class="bullet"></span>Monitoring creative</li>
+              <li><span class="bullet"></span>Laporan performa bulanan</li>
+            </ul>
+            <div class="price-line"><span class="from">Mulai dari</span><span class="amount">Rp1.500.000</span><span class="unit">/bulan</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ADVERTISING BUDGET ================= -->
+  <section id="budget">
+    <div class="container">
+      <div class="section-head reveal-hidden">
+        <div class="eyebrow"><span class="dot"></span>Budget Iklan</div>
+        <h2 class="section-title">Fee Management Iklan<span class="accent-dot">.</span></h2>
+        <p class="section-intro">Budget iklan diperhitungkan secara terpisah dari fee management di atas.</p>
+      </div>
+
+      <div class="fee-callout reveal-hidden">
+        <div class="big">20%</div>
+        <div class="label">dari budget iklan bulanan, dengan minimum Rp500.000/bulan.</div>
+      </div>
+
+      <table class="budget-table reveal-hidden">
+        <thead>
+          <tr><th>Budget Iklan</th><th>Fee Management</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Rp1.000.000</td><td>Rp500.000 (minimum)</td></tr>
+          <tr><td>Rp2.500.000</td><td>Rp500.000 (minimum)</td></tr>
+          <tr><td>Rp5.000.000</td><td>Rp1.000.000</td></tr>
+          <tr><td>Rp10.000.000</td><td>Rp2.000.000</td></tr>
+          <tr><td>Rp20.000.000</td><td>Rp4.000.000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= MAINTENANCE ================= -->
+  <section class="band-surface" id="maintenance">
+    <div class="container">
+      <div class="section-head reveal-hidden">
+        <div class="eyebrow"><span class="dot"></span>Setelah Website Live</div>
+        <h2 class="section-title">Website Maintenance<span class="accent-dot">.</span></h2>
+        <p class="section-intro">Paket perawatan bulanan untuk menjaga website tetap aman, cepat, dan up-to-date.</p>
+      </div>
+
+      <div class="maint-grid">
+        <div class="plan-card reveal-hidden stagger-1">
+          <div class="plan-name">Basic</div>
+          <div class="plan-price">
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">250.000</span><span class="unit" style="font-size:.8rem;color:var(--muted);font-weight:600;">/bulan</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Update keamanan</li>
+            <li><span class="bullet"></span>Perbaikan bug</li>
+            <li><span class="bullet"></span>Verifikasi backup mingguan</li>
+            <li><span class="bullet"></span>Dukungan teknis dasar</li>
+          </ul>
+        </div>
+
+        <div class="plan-card reveal-hidden stagger-2">
+          <div class="plan-name">Standard</div>
+          <div class="plan-price">
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">750.000</span><span class="unit" style="font-size:.8rem;color:var(--muted);font-weight:600;">/bulan</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="inherits">Semua di paket Basic, plus:</div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Bantuan konten</li>
+            <li><span class="bullet"></span>Pengecekan kesehatan website bulanan</li>
+            <li><span class="bullet"></span>Monitoring performa</li>
+          </ul>
+        </div>
+
+        <div class="plan-card reveal-hidden stagger-3">
+          <div class="plan-name">Premium</div>
+          <div class="plan-price">
+            <div class="amount-row"><span class="currency">Rp</span><span class="amount">1.500.000</span><span class="unit" style="font-size:.8rem;color:var(--muted);font-weight:600;">/bulan</span></div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="inherits">Semua di paket Standard, plus:</div>
+          <ul class="feature-list">
+            <li><span class="bullet"></span>Dukungan prioritas</li>
+            <li><span class="bullet"></span>Peningkatan fitur minor</li>
+            <li><span class="bullet"></span>Konsultasi bulanan</li>
+            <li><span class="bullet"></span>Monitoring lanjutan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NOTES ================= -->
+  <section id="notes">
+    <div class="container">
+      <div class="notes-box reveal-hidden">
+        <h3>Catatan</h3>
+        <ul>
+          <li><span class="bullet"></span>Paket Essential sudah termasuk domain dan hosting.</li>
+          <li><span class="bullet"></span>Biaya layanan pihak ketiga diperhitungkan secara terpisah.</li>
+          <li><span class="bullet"></span>Proyek Enterprise memerlukan penawaran khusus sesuai scope proyek.</li>
+          <li><span class="bullet"></span>Dukungan teknis mencakup perbaikan bug &amp; bantuan teknis saja. Permintaan fitur baru akan dikuotasi secara terpisah.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="kontak">
+  <div class="container">
+    <h2>Siap Mulai Proyek Anda?</h2>
+    <p class="lead">Tim sales Pesoros siap bantu tentukan paket yang paling sesuai untuk kebutuhan dan budget bisnis Anda.</p>
+
+    <div class="contact-row">
+      <a class="btn btn-gold" href="https://wa.me/6281288855773?text=Halo%20Pesoros%2C%20saya%20mau%20tanya%20soal%20rate%20card%20website." target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L4 20l1-4.5A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        0812-8885-5773
+      </a>
+      <a class="btn btn-outline-dark" href="mailto:sales@pesoros.com?subject=Tanya%20Rate%20Card%20Pesoros">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+        sales@pesoros.com
+      </a>
+    </div>
+
+    <div class="contact-block">
+      <div class="logo-chip"><img src="pesoros-logo.png" alt="Pesoros"></div>
+      <p class="footer-meta">© 2026 Pesoros — CV. Pengusaha Sogeh Teros. Harga dapat berubah sewaktu-waktu. Hubungi tim sales untuk penawaran resmi.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  var els = document.querySelectorAll('.reveal-hidden');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('reveal-in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
