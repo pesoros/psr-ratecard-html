@@ -118,7 +118,10 @@
   .lang button:not([aria-pressed="true"]):hover{color:var(--ink)}
 
   /* ---------- hero ---------- */
-  .hero{padding:clamp(56px,10vw,110px) 0 clamp(40px,6vw,64px)}
+  .hero{
+    padding-top:clamp(56px,10vw,110px);
+    padding-bottom:clamp(40px,6vw,64px);
+  }
   .hero .eyebrow{margin-bottom:26px}
   h1{
     font-family:var(--serif);font-weight:400;
@@ -289,7 +292,7 @@
     .nav-right{gap:.4rem}
     header .btn{padding:.55rem .7rem;font-size:.72rem}
     .lang button{padding:.3rem .4rem;font-size:.64rem}
-    .hero{padding:44px 0 32px}
+    .hero{padding-top:44px;padding-bottom:32px}
     .hero .eyebrow{margin-bottom:18px}
     h1{font-size:36px;line-height:1.05;margin-bottom:18px;overflow-wrap:anywhere}
     .lead{font-size:15px;margin-bottom:24px}
