@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-id="Portfolio — Pesoros" data-en="Portfolio — Pesoros">Portfolio — Pesoros</title>
+<meta name="description" content="Portfolio produk digital Pesoros: platform web, aplikasi mobile, dan internal tools." />
+<meta name="author" content="Pesoros" />
+<meta name="application-name" content="Portfolio — Pesoros" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#F6F2E9" />
+<link rel="canonical" href="https://portfolio.pesoros.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pesoros" />
+<meta property="og:url" content="https://portfolio.pesoros.com/" />
+<meta property="og:title" content="Portfolio — Pesoros" />
+<meta property="og:description" content="Portfolio produk digital Pesoros: platform web, aplikasi mobile, dan internal tools." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Portfolio — Pesoros" />
+<meta name="twitter:description" content="Portfolio produk digital Pesoros: platform web, aplikasi mobile, dan internal tools." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F6F2E9;
+    --mock:#F7F5F2;
+    --panel:#FFFFFF;
+    --ink:#14110D;
+    --ink-2:#463F35;
+    --muted:#8A8175;
+    --line:#E4DCCB;
+    --line-soft:#EDE6D8;
+    --accent:#C4A87B;
+    --accent-deep:#8A6E42;
+    --serif:"Noto Serif","Times New Roman",Georgia,serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --pad:1.5rem;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  ::selection{background:var(--accent);color:#fff}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+  @media (min-width:700px){:root{--pad:2.25rem}}
+
+  /* ---------- eyebrow ---------- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-2);
+  }
+  .eyebrow::before{
+    content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none;
+  }
+
+  /* ---------- top strip ---------- */
+  .strip{
+    background:var(--ink);color:#EDE6D8;font-size:12.5px;letter-spacing:.01em;
+    text-align:center;padding:9px 16px;
+  }
+  .strip a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(196,168,123,.7);padding-bottom:1px}
+  .strip a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(246,242,233,.88);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:var(--maxw);margin:0 auto;padding:14px var(--pad);
+    display:flex;align-items:center;gap:16px;
+  }
+  .brand{display:flex;align-items:center;text-decoration:none;flex:none}
+  .brand img{height:19px;width:auto}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .nav-tel{font-size:13.5px;color:var(--ink-2);text-decoration:none;letter-spacing:.01em}
+  .nav-tel:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:.01em;
+    padding:10px 18px;border-radius:999px;text-decoration:none;
+    border:1px solid var(--ink);background:var(--ink);color:var(--bg);
+    transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{background:transparent;color:var(--accent-deep);border-color:var(--accent)}
+
+  /* language switch */
+  .lang{
+    display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;
+    background:rgba(255,255,255,.5);
+  }
+  .lang button{
+    appearance:none;border:0;background:transparent;cursor:pointer;
+    font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    padding:7px 12px;color:var(--muted);transition:color .2s,background .2s;
+  }
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+  .lang button:not([aria-pressed="true"]):hover{color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(56px,10vw,110px) 0 clamp(40px,6vw,64px)}
+  .hero .eyebrow{margin-bottom:26px}
+  h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(42px,8.2vw,86px);line-height:1.02;letter-spacing:-.02em;
+    margin:0 0 22px;max-width:16ch;
+  }
+  .lead{
+    font-size:clamp(15.5px,1.6vw,18px);color:var(--ink-2);max-width:56ch;margin:0 0 32px;
+  }
+  .lead b{font-weight:500;color:var(--ink)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:clamp(40px,6vw,64px)}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+  }
+  .fact{padding:22px 20px 4px 0;border-right:1px solid var(--line-soft)}
+  .fact:last-child{border-right:0}
+  .fact .n{font-family:var(--serif);font-size:clamp(26px,3.4vw,38px);line-height:1;letter-spacing:-.01em}
+  .fact .l{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:9px}
+
+  /* ---------- section shell ---------- */
+  section{scroll-margin-top:74px}
+  .sec-head{padding:clamp(60px,9vw,104px) 0 clamp(24px,3vw,36px)}
+  .sec-head h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(30px,4.6vw,50px);line-height:1.08;letter-spacing:-.015em;
+    margin:16px 0 0;
+  }
+  .sec-head p{color:var(--ink-2);max-width:52ch;margin:14px 0 0;font-size:15.5px}
+
+  /* ---------- index table ---------- */
+  .index{border-top:1px solid var(--ink)}
+  .row{
+    display:grid;grid-template-columns:52px minmax(0,1.5fr) minmax(0,1fr) 100px 28px;
+    align-items:baseline;gap:16px;
+    padding:20px 4px;border-bottom:1px solid var(--line);
+    text-decoration:none;color:inherit;transition:background .25s ease,padding .25s ease;
+  }
+  .row:hover{background:rgba(255,255,255,.6);padding-left:12px;padding-right:12px}
+  .row .num{font-size:12px;color:var(--muted);letter-spacing:.08em}
+  .row .ttl{font-family:var(--serif);font-size:clamp(19px,2.3vw,25px);letter-spacing:-.01em;line-height:1.2}
+  .row .sub{font-size:13.5px;color:var(--ink-2)}
+  .row .yr{font-size:13px;color:var(--muted);letter-spacing:.04em}
+  .row .arw{font-size:16px;color:var(--muted);justify-self:end;transition:transform .25s ease,color .25s ease}
+  .row:hover .arw{transform:translateX(4px);color:var(--accent-deep)}
+
+  /* ---------- work item ---------- */
+  .work{padding-top:clamp(64px,9vw,112px)}
+  .work-head{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(24px,5vw,64px);align-items:end;
+    padding-bottom:clamp(26px,3.5vw,42px);
+  }
+  .work-head h3{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(30px,5vw,54px);line-height:1.04;letter-spacing:-.02em;margin:14px 0 0;
+  }
+  .work-meta{
+    font-size:13.5px;color:var(--muted);margin-top:14px;
+    display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;
+  }
+  .work-meta span:not(:last-child)::after{content:"·";margin-left:10px;color:var(--line)}
+  .work-body p{margin:0 0 18px;color:var(--ink-2);font-size:15.5px}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+  .tags li{
+    font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);
+    border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:rgba(255,255,255,.55);
+  }
+
+  .shot{
+    background:var(--mock);border:1px solid var(--line-soft);border-radius:6px;overflow:hidden;
+    cursor:zoom-in;position:relative;
+    box-shadow:0 1px 2px rgba(20,17,13,.03),0 12px 40px -24px rgba(20,17,13,.28);
+    transition:box-shadow .35s ease,border-color .35s ease;
+  }
+  .shot:hover{box-shadow:0 1px 2px rgba(20,17,13,.04),0 22px 60px -28px rgba(20,17,13,.36);border-color:var(--line)}
+  .shot .hint{
+    position:absolute;right:14px;bottom:14px;
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+    background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:999px;padding:6px 12px;
+    opacity:0;transition:opacity .3s ease;pointer-events:none;
+  }
+  .shot:hover .hint{opacity:1}
+  .cap{
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:12.5px;color:var(--muted);margin-top:12px;
+  }
+
+  /* ---------- capabilities ---------- */
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .cap-item{background:var(--bg);padding:26px 24px 30px}
+  .cap-item h4{font-family:var(--serif);font-weight:400;font-size:20px;margin:12px 0 8px;letter-spacing:-.01em}
+  .cap-item p{margin:0;font-size:14px;color:var(--ink-2)}
+  .cap-item .k{font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+  /* ---------- cta ---------- */
+  .cta{
+    margin-top:clamp(72px,10vw,128px);
+    background:var(--ink);color:#F1EBDD;border-radius:8px;
+    padding:clamp(40px,6vw,76px) clamp(26px,5vw,64px);
+    text-align:center;
+  }
+  .cta .eyebrow{color:#CFC6B4}
+  .cta h2{
+    font-family:var(--serif);font-weight:400;color:#fff;
+    font-size:clamp(28px,4.4vw,46px);line-height:1.1;letter-spacing:-.015em;margin:18px 0 14px;
+  }
+  .cta p{color:#B9B1A2;max-width:48ch;margin:0 auto 30px;font-size:15.5px}
+  .cta .btn{background:var(--accent);border-color:var(--accent);color:#231C10;font-weight:600}
+  .cta .btn:hover{background:#fff;border-color:#fff;color:var(--ink)}
+  .cta .btn-ghost{background:transparent;color:#EDE6D8;border-color:rgba(237,230,216,.32)}
+  .cta .btn-ghost:hover{background:transparent;color:#fff;border-color:#fff}
+  .cta-row-c{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+  /* ---------- footer ---------- */
+  footer{padding:clamp(44px,6vw,72px) 0 56px}
+  .foot{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+    border-top:1px solid var(--line);padding-top:26px}
+  .foot img{height:17px;width:auto;opacity:.85}
+  .foot p{margin:0;font-size:12.5px;color:var(--muted);max-width:62ch}
+  .foot a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
+  .foot a:hover{color:var(--accent-deep);border-bottom-color:var(--accent)}
+
+  /* ---------- lightbox ---------- */
+  .lb{
+    position:fixed;inset:0;z-index:200;background:rgba(20,17,13,.94);
+    display:none;overflow:auto;padding:clamp(16px,4vw,48px);
+  }
+  .lb[open],.lb.on{display:block}
+  .lb img{margin:0 auto;max-width:1600px;width:100%;border-radius:4px;background:var(--mock)}
+  .lb-close{
+    position:fixed;top:16px;right:16px;z-index:210;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;
+    border-radius:999px;padding:9px 16px;font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;cursor:pointer;backdrop-filter:blur(6px);
+  }
+  .lb-close:hover{background:rgba(255,255,255,.2)}
+
+  /* ---------- reveal ---------- */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+  .rv.in{opacity:1;transform:none}
+
+  :focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px;border-radius:3px}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .work-head{grid-template-columns:1fr;align-items:start;gap:20px}
+    .caps{grid-template-columns:1fr 1fr}
+    .facts{grid-template-columns:1fr 1fr}
+    .fact{border-right:0;border-bottom:1px solid var(--line-soft);padding-right:0;padding-bottom:16px}
+    .fact:nth-child(odd){border-right:1px solid var(--line-soft);padding-right:20px}
+  }
+  @media (max-width:660px){
+    .nav-tel{display:none}
+    .brand img{height:17px}
+    .row{grid-template-columns:34px 1fr 22px;gap:10px 12px}
+    .row .sub{grid-column:2;font-size:12.5px}
+    .row .yr{display:none}
+    .row .arw{grid-row:1}
+    .caps{grid-template-columns:1fr}
+    .strip{font-size:11.5px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <span data-id="Punya proyek yang mau dikerjakan? Chat sales di" data-en="Got a project in mind? Talk to sales at">Punya proyek yang mau dikerjakan? Chat sales di</span>
+  <a href="https://wa.me/6281288855773?text=Halo%20Pesoros%2C%20saya%20lihat%20portfolio%20dan%20mau%20diskusi%20proyek." target="_blank" rel="noopener">0812-8885-5773</a>
+</div>
+
+<header>
+  <nav class="nav" aria-label="Utama">
+    <a class="brand" href="#top" aria-label="Pesoros"><img src="pesoros-logo.png" alt="Pesoros" /></a>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="id" aria-pressed="true">ID</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="nav-tel" href="tel:+6281288855773">0812-8885-5773</a>
+      <a class="btn" href="#kontak" data-id="Hubungi Sales" data-en="Contact Sales">Hubungi Sales</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <p class="eyebrow" style="margin-top:0"><span data-id="Portfolio — 2026" data-en="Portfolio — 2026">Portfolio — 2026</span></p>
+    <h1 data-id="Produk digital yang dipakai tiap hari." data-en="Digital products people use every day.">Produk digital yang dipakai tiap hari.</h1>
+    <p class="lead" data-id="Pesoros merancang dan membangun platform web, aplikasi mobile, dan internal tools untuk kampus, label musik, dan perusahaan di Indonesia. Berikut sebagian karya terpilih — dari alur pemesanan tiket sampai konsol operasional." data-en="Pesoros designs and builds web platforms, mobile apps, and internal tools for universities, music labels, and companies across Indonesia. Below is a selection of our work — from ticket booking flows to operational consoles.">Pesoros merancang dan membangun platform web, aplikasi mobile, dan internal tools untuk kampus, label musik, dan perusahaan di Indonesia. Berikut sebagian karya terpilih — dari alur pemesanan tiket sampai konsol operasional.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://wa.me/6281288855773?text=Halo%20Pesoros%2C%20saya%20lihat%20portfolio%20dan%20mau%20diskusi%20proyek." target="_blank" rel="noopener" data-id="Diskusi proyek via WhatsApp" data-en="Start a project on WhatsApp">Diskusi proyek via WhatsApp</a>
+      <a class="btn btn-ghost" href="#karya" data-id="Lihat karya" data-en="Browse the work">Lihat karya</a>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><div class="n">06</div><div class="l" data-id="Proyek terpilih" data-en="Selected projects">Proyek terpilih</div></div>
+      <div class="fact"><div class="n">35</div><div class="l" data-id="Layar dirancang" data-en="Screens designed">Layar dirancang</div></div>
+      <div class="fact"><div class="n">04</div><div class="l" data-id="Klien" data-en="Clients">Klien</div></div>
+      <div class="fact"><div class="n">02</div><div class="l" data-id="Platform" data-en="Platforms">Platform</div></div>
+    </div>
+  </div>
+
+  <!-- INDEX -->
+  <section id="karya">
+    <div class="wrap sec-head rv">
+      <p class="eyebrow"><span data-id="Daftar Karya" data-en="Index">Daftar Karya</span></p>
+      <h2 data-id="Karya Terpilih." data-en="Selected Work.">Karya Terpilih.</h2>
+      <p data-id="Enam proyek, dua platform, empat klien. Klik salah satu untuk lompat ke detailnya." data-en="Six projects, two platforms, four clients. Pick one to jump to its detail.">Enam proyek, dua platform, empat klien. Klik salah satu untuk lompat ke detailnya.</p>
+    </div>
+    <div class="wrap">
+      <div class="index rv">
+        <a class="row" href="#untar-rsvp">
+          <span class="num">01</span>
+          <span class="ttl">Untar RSVP</span>
+          <span class="sub" data-id="Platform web · Registrasi & tiket acara" data-en="Web platform · Event registration & ticketing">Platform web · Registrasi &amp; tiket acara</span>
+          <span class="yr" data-id="4 layar" data-en="4 screens">4 layar</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+        <a class="row" href="#untar-esign">
+          <span class="num">02</span>
+          <span class="ttl">Untar e-Sign</span>
+          <span class="sub" data-id="Internal tool · Tanda tangan dokumen PDF" data-en="Internal tool · PDF document signing">Internal tool · Tanda tangan dokumen PDF</span>
+          <span class="yr" data-id="5 layar" data-en="5 screens">5 layar</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+        <a class="row" href="#juragan-trans">
+          <span class="num">03</span>
+          <span class="ttl">Juragan 99 Trans</span>
+          <span class="sub" data-id="Aplikasi iOS · Pemesanan tiket bus" data-en="iOS app · Bus ticket booking">Aplikasi iOS · Pemesanan tiket bus</span>
+          <span class="yr" data-id="11 layar" data-en="11 screens">11 layar</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+        <a class="row" href="#wa-console">
+          <span class="num">04</span>
+          <span class="ttl">WhatsApp API Console</span>
+          <span class="sub" data-id="Internal tool · Dashboard pesan bisnis" data-en="Internal tool · Business messaging dashboard">Internal tool · Dashboard pesan bisnis</span>
+          <span class="yr" data-id="6 layar" data-en="6 screens">6 layar</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+        <a class="row" href="#raja-konstruksi">
+          <span class="num">05</span>
+          <span class="ttl">Raja Konstruksi</span>
+          <span class="sub" data-id="Platform web · Manajemen proyek konstruksi" data-en="Web platform · Construction project management">Platform web · Manajemen proyek konstruksi</span>
+          <span class="yr" data-id="6 layar" data-en="6 screens">6 layar</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+        <a class="row" href="#pescore">
+          <span class="num">06</span>
+          <span class="ttl">+CORE Release Pages</span>
+          <span class="sub" data-id="Platform web · Halaman rilis untuk artis" data-en="Web platform · Release pages for artists">Platform web · Halaman rilis untuk artis</span>
+          <span class="yr" data-id="3 layar" data-en="3 screens">3 layar</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 UNTAR RSVP -->
+  <section class="work" id="untar-rsvp">
+    <div class="wrap">
+      <div class="work-head rv">
+        <div>
+          <p class="eyebrow"><span data-id="01 — Studi Kasus" data-en="01 — Case Study">01 — Studi Kasus</span></p>
+          <h3>Untar RSVP</h3>
+          <div class="work-meta">
+            <span>Universitas Tarumanagara</span>
+            <span data-id="Platform web" data-en="Web platform">Platform web</span>
+            <span data-id="4 layar" data-en="4 screens">4 layar</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <p data-id="Portal acara kampus: mahasiswa menemukan kegiatan, mendaftar, lalu menerima e-ticket ber-QR yang dipindai di lokasi. Panitia mengelola pendaftar tanpa lagi mengandalkan spreadsheet." data-en="A campus event portal: students discover activities, register, and receive a QR e-ticket that gets scanned at the door. Organisers manage attendees without falling back on spreadsheets.">Portal acara kampus: mahasiswa menemukan kegiatan, mendaftar, lalu menerima e-ticket ber-QR yang dipindai di lokasi. Panitia mengelola pendaftar tanpa lagi mengandalkan spreadsheet.</p>
+          <ul class="tags">
+            <li data-id="Pencarian acara" data-en="Event discovery">Pencarian acara</li>
+            <li data-id="Registrasi" data-en="Registration">Registrasi</li>
+            <li data-id="E-ticket QR" data-en="QR e-ticket">E-ticket QR</li>
+            <li data-id="Kuota & kapasitas" data-en="Capacity limits">Kuota &amp; kapasitas</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot rv" style="margin:0" data-cap-id="Untar RSVP — 4 layar" data-cap-en="Untar RSVP — 4 screens">
+        <img src="portimages/untar_rsvp_portfolio.png" alt="Untar RSVP" loading="lazy" />
+        <span class="hint" data-id="Klik untuk perbesar" data-en="Click to enlarge">Klik untuk perbesar</span>
+      </figure>
+      <div class="cap">
+        <span data-id="Beranda · Daftar acara · Detail acara · E-ticket" data-en="Home · Event listing · Event detail · E-ticket">Beranda · Daftar acara · Detail acara · E-ticket</span>
+        <span data-id="Dirancang & dibangun 2026" data-en="Designed &amp; built 2026">Dirancang &amp; dibangun 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 UNTAR E-SIGN -->
+  <section class="work" id="untar-esign">
+    <div class="wrap">
+      <div class="work-head rv">
+        <div>
+          <p class="eyebrow"><span data-id="02 — Internal Tool" data-en="02 — Internal Tool">02 — Internal Tool</span></p>
+          <h3>Untar e-Sign</h3>
+          <div class="work-meta">
+            <span>Universitas Tarumanagara</span>
+            <span data-id="Platform internal" data-en="Internal platform">Platform internal</span>
+            <span data-id="5 layar" data-en="5 screens">5 layar</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <p data-id="Alur tanda tangan dokumen untuk lingkungan kampus. Dosen mengunggah PDF, menaruh tanda tangan langsung di halaman, dan setiap dokumen keluar dengan QR verifikasi supaya keasliannya bisa dicek kapan saja." data-en="A document signing flow for campus staff. Lecturers upload a PDF, place their signature directly on the page, and every document leaves with a verification QR so its authenticity can be checked later.">Alur tanda tangan dokumen untuk lingkungan kampus. Dosen mengunggah PDF, menaruh tanda tangan langsung di halaman, dan setiap dokumen keluar dengan QR verifikasi supaya keasliannya bisa dicek kapan saja.</p>
+          <ul class="tags">
+            <li data-id="Unggah PDF" data-en="PDF upload">Unggah PDF</li>
+            <li data-id="Tanda tangan digital" data-en="Digital signature">Tanda tangan digital</li>
+            <li data-id="Verifikasi QR" data-en="QR verification">Verifikasi QR</li>
+            <li data-id="Riwayat & pendelegasian" data-en="History & delegation">Riwayat &amp; pendelegasian</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot rv" style="margin:0" data-cap-id="Untar e-Sign — 5 layar" data-cap-en="Untar e-Sign — 5 screens">
+        <img src="portimages/untar_sign_portfolio.png" alt="Untar e-Sign" loading="lazy" />
+        <span class="hint" data-id="Klik untuk perbesar" data-en="Click to enlarge">Klik untuk perbesar</span>
+      </figure>
+      <div class="cap">
+        <span data-id="Unggah dokumen · Riwayat · Atur tanda tangan · Dashboard · Posisi tanda tangan" data-en="Upload document · Sign history · Signature setup · Dashboard · Signature placement">Unggah dokumen · Riwayat · Atur tanda tangan · Dashboard · Posisi tanda tangan</span>
+        <span data-id="Dirancang & dibangun 2026" data-en="Designed &amp; built 2026">Dirancang &amp; dibangun 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 JURAGAN 99 TRANS -->
+  <section class="work" id="juragan-trans">
+    <div class="wrap">
+      <div class="work-head rv">
+        <div>
+          <p class="eyebrow"><span data-id="03 — Studi Kasus" data-en="03 — Case Study">03 — Studi Kasus</span></p>
+          <h3>Juragan 99 Trans</h3>
+          <div class="work-meta">
+            <span>Juragan 99</span>
+            <span data-id="Aplikasi iOS" data-en="iOS app">Aplikasi iOS</span>
+            <span data-id="11 layar" data-en="11 screens">11 layar</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <p data-id="Aplikasi pemesanan tiket bus, dari pencarian rute sampai boarding pass. Penumpang memilih kursi lewat denah bus, menambah asuransi dan bagasi, membayar, lalu naik dengan QR — sebelas layar dalam satu alur yang tidak terputus." data-en="A bus ticket booking app that runs from route search to boarding pass. Passengers pick a seat from the bus map, add insurance and baggage, pay, then board with a QR code — eleven screens in one unbroken flow.">Aplikasi pemesanan tiket bus, dari pencarian rute sampai boarding pass. Penumpang memilih kursi lewat denah bus, menambah asuransi dan bagasi, membayar, lalu naik dengan QR — sebelas layar dalam satu alur yang tidak terputus.</p>
+          <ul class="tags">
+            <li data-id="Pilih kursi" data-en="Seat selection">Pilih kursi</li>
+            <li data-id="Add-on & asuransi" data-en="Add-ons & insurance">Add-on &amp; asuransi</li>
+            <li data-id="Pembayaran" data-en="Payment">Pembayaran</li>
+            <li data-id="Boarding pass" data-en="Boarding pass">Boarding pass</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot rv" style="margin:0" data-cap-id="Juragan 99 Trans — 11 layar" data-cap-en="Juragan 99 Trans — 11 screens">
+        <img src="portimages/juragan99_portfolio_minimal.png" alt="Juragan 99 Trans" loading="lazy" />
+        <span class="hint" data-id="Klik untuk perbesar" data-en="Click to enlarge">Klik untuk perbesar</span>
+      </figure>
+      <div class="cap">
+        <span data-id="Beranda · Hasil pencarian · Detail bus · Pilih kursi · Data penumpang · Pembayaran · Boarding pass" data-en="Home · Search results · Bus detail · Seat selection · Passenger form · Payment · Boarding pass">Beranda · Hasil pencarian · Detail bus · Pilih kursi · Data penumpang · Pembayaran · Boarding pass</span>
+        <span data-id="Dirancang 2026" data-en="Designed 2026">Dirancang 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 WA CONSOLE -->
+  <section class="work" id="wa-console">
+    <div class="wrap">
+      <div class="work-head rv">
+        <div>
+          <p class="eyebrow"><span data-id="04 — Internal Tool" data-en="04 — Internal Tool">04 — Internal Tool</span></p>
+          <h3>WhatsApp API Console</h3>
+          <div class="work-meta">
+            <span>Juragan 99</span>
+            <span data-id="Dashboard web" data-en="Web dashboard">Dashboard web</span>
+            <span data-id="6 layar" data-en="6 screens">6 layar</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <p data-id="Konsol operasional untuk tim yang mengirim pesan WhatsApp Business dalam jumlah besar. Satu tempat untuk mengirim, memantau status pengiriman, mengelola nomor pengirim, dan mengurus template yang menunggu persetujuan." data-en="An operations console for teams sending WhatsApp Business messages at volume. One place to send, watch delivery status, manage sender numbers, and handle templates waiting for approval.">Konsol operasional untuk tim yang mengirim pesan WhatsApp Business dalam jumlah besar. Satu tempat untuk mengirim, memantau status pengiriman, mengelola nomor pengirim, dan mengurus template yang menunggu persetujuan.</p>
+          <ul class="tags">
+            <li data-id="Kirim pesan" data-en="Send messages">Kirim pesan</li>
+            <li data-id="Riwayat & status" data-en="History & status">Riwayat &amp; status</li>
+            <li data-id="Nomor pengirim" data-en="Sender numbers">Nomor pengirim</li>
+            <li data-id="Template" data-en="Templates">Template</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot rv" style="margin:0" data-cap-id="WhatsApp API Console — 6 layar" data-cap-en="WhatsApp API Console — 6 screens">
+        <img src="portimages/juragan99_dashboard_portfolio.png" alt="WhatsApp API Console" loading="lazy" />
+        <span class="hint" data-id="Klik untuk perbesar" data-en="Click to enlarge">Klik untuk perbesar</span>
+      </figure>
+      <div class="cap">
+        <span data-id="Masuk · Dashboard · Kirim pesan · Riwayat pesan · Nomor pengirim · Template" data-en="Sign in · Dashboard · Send message · Message history · Sender numbers · Templates">Masuk · Dashboard · Kirim pesan · Riwayat pesan · Nomor pengirim · Template</span>
+        <span data-id="Dirancang & dibangun 2026" data-en="Designed &amp; built 2026">Dirancang &amp; dibangun 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 RAJA KONSTRUKSI -->
+  <section class="work" id="raja-konstruksi">
+    <div class="wrap">
+      <div class="work-head rv">
+        <div>
+          <p class="eyebrow"><span data-id="05 — Internal Tool" data-en="05 — Internal Tool">05 — Internal Tool</span></p>
+          <h3>Raja Konstruksi</h3>
+          <div class="work-meta">
+            <span>Raja Konstruksi</span>
+            <span data-id="Platform web" data-en="Web platform">Platform web</span>
+            <span data-id="6 layar" data-en="6 screens">6 layar</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <p data-id="Manajemen proyek konstruksi untuk tim lapangan dan kantor. Rencana anggaran, permintaan pembelian, laporan harian, dan kurva-S progres mingguan dikumpulkan jadi satu supaya rencana dan realisasi bisa dibandingkan tiap minggu." data-en="Construction project management for site and office teams. Budget plans, purchase requests, daily reports, and weekly S-curve progress live in one place, so plan and actual can be compared every week.">Manajemen proyek konstruksi untuk tim lapangan dan kantor. Rencana anggaran, permintaan pembelian, laporan harian, dan kurva-S progres mingguan dikumpulkan jadi satu supaya rencana dan realisasi bisa dibandingkan tiap minggu.</p>
+          <ul class="tags">
+            <li data-id="Rencana anggaran" data-en="Budget planning">Rencana anggaran</li>
+            <li data-id="Permintaan pembelian" data-en="Purchase requests">Permintaan pembelian</li>
+            <li data-id="Laporan harian" data-en="Daily reports">Laporan harian</li>
+            <li data-id="Kurva-S" data-en="S-curve">Kurva-S</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot rv" style="margin:0" data-cap-id="Raja Konstruksi — 6 layar" data-cap-en="Raja Konstruksi — 6 screens">
+        <img src="portimages/raja_konstruksi_portfolio.png" alt="Raja Konstruksi" loading="lazy" />
+        <span class="hint" data-id="Klik untuk perbesar" data-en="Click to enlarge">Klik untuk perbesar</span>
+      </figure>
+      <div class="cap">
+        <span data-id="Daftar proyek · Anggaran · Permintaan pembelian · Laporan harian · Dashboard · Kurva-S" data-en="Project list · Budget · Purchase requests · Daily reports · Dashboard · S-curve">Daftar proyek · Anggaran · Permintaan pembelian · Laporan harian · Dashboard · Kurva-S</span>
+        <span data-id="Dirancang & dibangun 2026" data-en="Designed &amp; built 2026">Dirancang &amp; dibangun 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 +CORE -->
+  <section class="work" id="pescore">
+    <div class="wrap">
+      <div class="work-head rv">
+        <div>
+          <p class="eyebrow"><span data-id="06 — Studi Kasus" data-en="06 — Case Study">06 — Studi Kasus</span></p>
+          <h3>+CORE Release Pages</h3>
+          <div class="work-meta">
+            <span>Ples+ Connect</span>
+            <span data-id="Platform web" data-en="Web platform">Platform web</span>
+            <span data-id="3 layar" data-en="3 screens">3 layar</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <p data-id="Satu produk halaman rilis yang dipakai berulang untuk banyak artis. Setiap rilis punya halamannya sendiri: tombol ke Spotify, Apple Music, dan TikTok, pre-save sebelum lagu keluar, dan video YouTube yang diputar langsung di halaman — semuanya mengambil warna dan artwork artisnya, tanpa perlu bikin website baru tiap perilisan." data-en="One release-page product reused across a roster of artists. Every release gets its own page: buttons through to Spotify, Apple Music, and TikTok, pre-save before the track drops, and a YouTube video that plays inline — each one dressed in the artist's own artwork, with no new website per release.">Satu produk halaman rilis yang dipakai berulang untuk banyak artis. Setiap rilis punya halamannya sendiri: tombol ke Spotify, Apple Music, dan TikTok, pre-save sebelum lagu keluar, dan video YouTube yang diputar langsung di halaman — semuanya mengambil warna dan artwork artisnya, tanpa perlu bikin website baru tiap perilisan.</p>
+          <ul class="tags">
+            <li data-id="Smart link" data-en="Smart link">Smart link</li>
+            <li data-id="Pre-save" data-en="Pre-save">Pre-save</li>
+            <li data-id="Video embed" data-en="Video embed">Video embed</li>
+            <li data-id="Tema per artis" data-en="Per-artist theming">Tema per artis</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot rv" style="margin:0">
+        <img src="portimages/plescore_portfolio.png" alt="+CORE Release Pages" loading="lazy" />
+        <span class="hint" data-id="Klik untuk perbesar" data-en="Click to enlarge">Klik untuk perbesar</span>
+      </figure>
+      <div class="cap">
+        <span data-id="Halaman rilis (desktop) · Halaman rilis (mobile) · Halaman pre-save" data-en="Release page (desktop) · Release page (mobile) · Pre-save page">Halaman rilis (desktop) · Halaman rilis (mobile) · Halaman pre-save</span>
+        <span data-id="Dirancang & dibangun 2026" data-en="Designed &amp; built 2026">Dirancang &amp; dibangun 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="layanan">
+    <div class="wrap sec-head rv">
+      <p class="eyebrow"><span data-id="Cara Kami Bekerja" data-en="How We Work">Cara Kami Bekerja</span></p>
+      <h2 data-id="Dari alur sampai rilis." data-en="From flow to release.">Dari alur sampai rilis.</h2>
+      <p data-id="Kami mengerjakan desain dan pengembangannya sekaligus, jadi keputusan desain tidak berhenti di file mockup." data-en="We handle design and engineering together, so design decisions don't stop at the mockup file.">Kami mengerjakan desain dan pengembangannya sekaligus, jadi keputusan desain tidak berhenti di file mockup.</p>
+    </div>
+    <div class="wrap">
+      <div class="caps rv">
+        <div class="cap-item">
+          <div class="k">01</div>
+          <h4 data-id="Pemetaan alur" data-en="Flow mapping">Pemetaan alur</h4>
+          <p data-id="Kami mulai dari perjalanan pengguna dan aturan bisnisnya, bukan dari halaman." data-en="We start from the user journey and the business rules behind it, not from pages.">Kami mulai dari perjalanan pengguna dan aturan bisnisnya, bukan dari halaman.</p>
+        </div>
+        <div class="cap-item">
+          <div class="k">02</div>
+          <h4 data-id="Desain antarmuka" data-en="Interface design">Desain antarmuka</h4>
+          <p data-id="Setiap layar dirancang lengkap sampai kondisi kosong, error, dan status pemuatan." data-en="Every screen is designed all the way through empty, error, and loading states.">Setiap layar dirancang lengkap sampai kondisi kosong, error, dan status pemuatan.</p>
+        </div>
+        <div class="cap-item">
+          <div class="k">03</div>
+          <h4 data-id="Pengembangan" data-en="Engineering">Pengembangan</h4>
+          <p data-id="Web platform, aplikasi mobile, dan integrasi API dikerjakan tim yang sama." data-en="Web platforms, mobile apps, and API integrations are built by the same team.">Web platform, aplikasi mobile, dan integrasi API dikerjakan tim yang sama.</p>
+        </div>
+        <div class="cap-item">
+          <div class="k">04</div>
+          <h4 data-id="Serah terima" data-en="Handover">Serah terima</h4>
+          <p data-id="Training, dokumentasi, dan akses penuh ke sistem yang kami bangun." data-en="Training, documentation, and full access to the system we built.">Training, dokumentasi, dan akses penuh ke sistem yang kami bangun.</p>
+        </div>
+        <div class="cap-item">
+          <div class="k">05</div>
+          <h4 data-id="Maintenance" data-en="Maintenance">Maintenance</h4>
+          <p data-id="Update keamanan, perbaikan bug, dan monitoring performa setelah rilis." data-en="Security updates, bug fixes, and performance monitoring after release.">Update keamanan, perbaikan bug, dan monitoring performa setelah rilis.</p>
+        </div>
+        <div class="cap-item">
+          <div class="k">06</div>
+          <h4 data-id="Rate card" data-en="Rate card">Rate card</h4>
+          <p data-id="Harga paket website, iklan digital, dan maintenance bisa dilihat terbuka." data-en="Pricing for website packages, digital ads, and maintenance is published openly.">Harga paket website, iklan digital, dan maintenance bisa dilihat terbuka.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="kontak">
+    <div class="wrap">
+      <div class="cta rv">
+        <p class="eyebrow"><span data-id="Mulai Proyek" data-en="Start a Project">Mulai Proyek</span></p>
+        <h2 data-id="Ada yang mau dibangun?" data-en="Something you want built?">Ada yang mau dibangun?</h2>
+        <p data-id="Ceritakan kebutuhan Anda ke tim sales Pesoros. Kami bantu tentukan scope, timeline, dan paket yang paling masuk akal untuk budget Anda." data-en="Tell the Pesoros sales team what you need. We'll help shape the scope, timeline, and the package that makes the most sense for your budget.">Ceritakan kebutuhan Anda ke tim sales Pesoros. Kami bantu tentukan scope, timeline, dan paket yang paling masuk akal untuk budget Anda.</p>
+        <div class="cta-row-c">
+          <a class="btn" href="https://wa.me/6281288855773?text=Halo%20Pesoros%2C%20saya%20lihat%20portfolio%20dan%20mau%20diskusi%20proyek." target="_blank" rel="noopener">0812-8885-5773</a>
+          <a class="btn btn-ghost" href="mailto:sales@pesoros.com?subject=Diskusi%20Proyek%20Pesoros">sales@pesoros.com</a>
+          <a class="btn btn-ghost" href="https://ratecard.pesoros.com" target="_blank" rel="noopener" data-id="Lihat rate card" data-en="See the rate card">Lihat rate card</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="pesoros-logo.png" alt="Pesoros" />
+    <p>
+      <span data-id="© 2026 Pesoros — CV. Pengusaha Sogeh Teros. Sebagian karya ditampilkan atas izin klien." data-en="© 2026 Pesoros — CV. Pengusaha Sogeh Teros. Selected work shown with client permission.">© 2026 Pesoros — CV. Pengusaha Sogeh Teros. Sebagian karya ditampilkan atas izin klien.</span>
+      <a href="https://ratecard.pesoros.com" target="_blank" rel="noopener">ratecard.pesoros.com</a>
+    </p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Preview">
+  <button class="lb-close" type="button" id="lbClose" data-id="Tutup" data-en="Close">Tutup</button>
+  <img id="lbImg" src="" alt="" />
+</div>
+
+<script>
+(function(){
+  var STORE = "pesoros-lang";
+  var lang = "id";
+  try { var s = localStorage.getItem(STORE); if (s === "en" || s === "id") lang = s; } catch(e){}
+
+  function apply(l){
+    lang = l;
+    document.documentElement.lang = l;
+    var description = l === "en"
+      ? "Pesoros digital product portfolio: web platforms, mobile applications, and internal tools."
+      : "Portfolio produk digital Pesoros: platform web, aplikasi mobile, dan internal tools.";
+    document.querySelector('meta[name="description"]').content = description;
+    document.querySelector('meta[property="og:description"]').content = description;
+    document.querySelector('meta[name="twitter:description"]').content = description;
+    var nodes = document.querySelectorAll("[data-id][data-en]");
+    for (var i = 0; i < nodes.length; i++){
+      var n = nodes[i];
+      var val = n.getAttribute("data-" + l);
+      if (val === null) continue;
+      if (n.tagName === "TITLE") { document.title = val; }
+      else { n.innerHTML = val; }
+    }
+    var btns = document.querySelectorAll(".lang button");
+    for (var j = 0; j < btns.length; j++){
+      btns[j].setAttribute("aria-pressed", btns[j].getAttribute("data-lang") === l ? "true" : "false");
+    }
+    try { localStorage.setItem(STORE, l); } catch(e){}
+  }
+
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); });
+  });
+  apply(lang);
+
+  /* reveal on scroll */
+  var rvs = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    rvs.forEach(function(el){ io.observe(el); });
+  } else {
+    rvs.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* lightbox */
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbClose = document.getElementById("lbClose");
+  function open(src, alt){
+    lbImg.src = src; lbImg.alt = alt || "";
+    lb.classList.add("on"); document.body.style.overflow = "hidden"; lbClose.focus();
+  }
+  function close(){
+    lb.classList.remove("on"); document.body.style.overflow = ""; lbImg.src = "";
+  }
+  document.querySelectorAll(".shot").forEach(function(f){
+    f.addEventListener("click", function(){
+      var img = f.querySelector("img");
+      open(img.currentSrc || img.src, img.alt);
+    });
+  });
+  lb.addEventListener("click", function(e){ if (e.target !== lbImg) close(); });
+  lbClose.addEventListener("click", close);
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") close(); });
+})();
+</script>
+</body>
+</html>

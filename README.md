@@ -23,22 +23,31 @@ a browser, or use any static HTTP server available on your computer.
 ## Deploy to cPanel
 
 The repository can be uploaded directly into `public_html/`. The root
-`.htaccess` internally serves `apps/ratecard/` at the main domain:
+`.htaccess` selects the app from the requested domain:
+
+- `portfolio.pesoros.com` serves `apps/portfolio/`
+- All other configured domains serve `apps/ratecard/`
 
 ```text
 public_html/
 ├── .htaccess
 ├── README.md
 └── apps/
+    ├── portfolio/
+    │   ├── index.html
+    │   ├── favicon.png
+    │   ├── pesoros-logo.png
+    │   └── portimages/
     └── ratecard/
         ├── index.html
         ├── favicon.png
         └── pesoros-logo.png
 ```
 
-For example, `https://example.com/` serves `apps/ratecard/index.html`, while
-`https://example.com/favicon.png` serves `apps/ratecard/favicon.png`. These are
-internal rewrites, so `/apps/ratecard` does not appear in the browser address.
+For example, `https://portfolio.pesoros.com/` serves
+`apps/portfolio/index.html`, while `https://portfolio.pesoros.com/favicon.png`
+serves `apps/portfolio/favicon.png`. These are internal rewrites, so the `apps/`
+directory does not appear in the browser address.
 
 The site has no Node.js, package manager, dependency installation, or server-side
 runtime requirement.

@@ -5,7 +5,11 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Serve the ratecard app at the domain root without changing the browser URL.
-  # Excluding the target directory prevents rewrite loops.
+  # portfolio.pesoros.com -> apps/portfolio
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?portfolio\.pesoros\.com$ [NC]
+  RewriteRule ^(?!apps/portfolio(?:/|$))(.*)$ apps/portfolio/$1 [L]
+
+  # All other configured domains -> apps/ratecard
+  RewriteCond %{HTTP_HOST} !^(?:www\.)?portfolio\.pesoros\.com$ [NC]
   RewriteRule ^(?!apps/ratecard(?:/|$))(.*)$ apps/ratecard/$1 [L]
 </IfModule>
