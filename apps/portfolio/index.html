@@ -145,7 +145,10 @@
 
   /* ---------- section shell ---------- */
   section{scroll-margin-top:74px}
-  .sec-head{padding:clamp(60px,9vw,104px) 0 clamp(24px,3vw,36px)}
+  .sec-head{
+    padding-top:clamp(60px,9vw,104px);
+    padding-bottom:clamp(24px,3vw,36px);
+  }
   .sec-head h2{
     font-family:var(--serif);font-weight:400;
     font-size:clamp(30px,4.6vw,50px);line-height:1.08;letter-spacing:-.015em;
@@ -298,6 +301,9 @@
     .lead{font-size:15px;margin-bottom:24px}
     .cta-row{flex-direction:column;margin-bottom:32px}
     .cta-row .btn{width:100%;padding:11px 14px}
+    .sec-head{padding-top:48px;padding-bottom:24px}
+    .sec-head h2{margin-top:12px}
+    .sec-head p{margin-top:12px}
     .facts{gap:0}
     .fact{padding:18px 8px 0 0;min-width:0}
     .fact .n{font-size:26px}
